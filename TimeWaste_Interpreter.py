@@ -33,7 +33,7 @@ def compile(sourcefile):
             if j in i:                  #check if keyword from lookuptable is in current line
                 keyWord_inText = True
                 executeTime = lookuptable[j]            #get execute hour from lookuptable
-                if executeTime == artificialTime.hour:  #if current hour is execute hour add no delay
+                if executeTime.hour == artificialTime.hour:  #if current hour is execute hour add no delay
                     program += i
                 else:
                     #calculate delay to reach execute hour
@@ -45,7 +45,7 @@ def compile(sourcefile):
                     artificialTime = executeTime                                        #update time
         if not keyWord_inText:
             program += i                                                                #if no keyword in the line just add it to the 'compiled' program
-        return program
+    return program
 
 
 if __name__ == '__main__':
